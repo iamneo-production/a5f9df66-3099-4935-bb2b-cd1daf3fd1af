@@ -7,7 +7,7 @@ import { User } from './user';
   providedIn: 'root'
 })
 export class RegisterService {
-   baseUrl="http://localhost:7000/userregister";
+   baseUrl="http://localhost:8080/userregister";
   constructor(private httpClient: HttpClient)
   {  
   
