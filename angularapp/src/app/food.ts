@@ -1,4 +1,4 @@
-export class FoodItemClass {
+export class Food {
     img: string;
     name: string;
     category: string;
@@ -10,4 +10,4 @@ export class FoodItemClass {
       this.category = category;
       this.price = price;
     }
-  }
+}
