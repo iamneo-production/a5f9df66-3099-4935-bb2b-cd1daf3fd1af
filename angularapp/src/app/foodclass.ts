@@ -1,4 +1,4 @@
-export class Food {
+export class Foodclass {
     img: string;
     name: string;
     category: string;

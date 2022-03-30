@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Food } from '../food'; 
+import { Foodclass } from '../foodclass'; 
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
