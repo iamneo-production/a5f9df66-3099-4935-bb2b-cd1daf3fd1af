@@ -1,0 +1,78 @@
+<div class="Main">
+ 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <nav class="navbar" >
+      <ul class="navbar-nav">
+        <li>
+          <a class="nav-link" style="color:aliceblue" routerLink="/userhomepage">  Book Event</a>
+        </li>
+        <li>
+          <a class="nav-link" style="color:aliceblue" routerLink="/viewbooking">View Booked Event</a>
+        </li>
+        <li>
+          <a class="nav-link" (click)="Logout()"  style="color:aliceblue; cursor: pointer;">Log out</a>
+        </li>
+      </ul>
+    </nav>
+    
+    <form  (ngSubmit)="BookEvent()">
+      <div class="bookevent1">
+     <div class="left">
+        <input type="text" class="details" placeholder="Name" name="eventName" id="eventName"  [(ngModel)]="bookevent.eventName"/>
+    
+    
+        <input type="text" class="details" placeholder="Enter applicant name" name="applicantName"id="applicantName" [(ngModel)]="bookevent.applicantName"/>
+    
+    
+        <input  type="text" class="details" placeholder="Enter applicant address" name="applicantAddress" id="applicantAddress" [(ngModel)]="bookevent.applicantAddress" />
+    
+    
+        <input type="tel"   class="details" placeholder="Enter applicant Mobile Number" name="applicantMobileNo" id="applicantMobileNo" [(ngModel)]="bookevent.applicantMobileNo"/>
+  
+    
+        <input type="email" class="details" placeholder="Enter apllicant email" name="applicantEmailId"  id="applicantEmailId" [(ngModel)]="bookevent.applicantEmailId"/>  
+     </div>
+  
+    <div class="right">
+        <input type="text" class="details" placeholder="Location" name="eventAddress" id="eventAddress" [(ngModel)]="bookevent.eventAddress"/>
+    
+    
+        <input type="date" class="details" placeholder="Enter the date of the event" name="eventDate" id="eventDate" [(ngModel)]="bookevent.eventDate"/>
+    
+    
+        <input  type="time" class="details" placeholder="Enter the time of the event" name="eventTime" id="eventTime" [(ngModel)]="bookevent.eventTime"/>
+    
+    
+        <input type="number"class="details" placeholder="Enter the number of people" name="noOfPeople" id="noOfPeople"  [(ngModel)]="bookevent.noOfPeople" />
+        
+        <button type="button" id="nextPageButton" class="nextpage">Nextpage</button>
+    </div>
+  </div>
+    <div class="bookevent2">
+      <div class="left">
+        <div  >
+          
+            <select type="dropdown" class="dropdown"  id="selectFoodCategory" name="selectFoodCategory" [(ngModel)]="bookevent.selectFoodCategory">
+              <option value="">Select For Category</option>
+              <option value="veg">Veg</option>
+              <option value="non-veg">Non-Veg</option>
+           
+            </select>
+      </div>
+      <input type="number"class="details" placeholder="Enter the quantity of veg items" name="quantityOfVeg"  id="quantityOfVeg" [(ngModel)]="bookevent.quantityOfVeg"/>
+        
+  
+      <input type="number"class="details" placeholder="Enter the quantity of Non veg items" name="quantityOfNonVeg" id="quantityOfNonVeg" [(ngModel)]="bookevent.quantityOfNonVeg"/>
+    </div>
+    <div class="right">
+    
+      <button  type="submit" id="bookEvent" class="bookEvent" style="color: beige;">Book Event</button>
+    </div>
+    </div>
+ 
+    </form>
+ 
+    </div>
+  
+
+
