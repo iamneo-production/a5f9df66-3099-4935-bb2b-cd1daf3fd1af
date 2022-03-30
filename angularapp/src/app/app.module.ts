@@ -8,6 +8,7 @@ import { BookingComponent } from './booking/booking.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { RegisterpageComponent } from './registerpage/registerpage.component';
 import { FoodComponent } from './food/food.component';
+import { UpdateFoodComponent } from './update-food/update-food.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FoodComponent } from './food/food.component';
     BookingComponent,
     HomepageComponent,
     RegisterpageComponent,
-    FoodComponent
+    FoodComponent,
+    UpdateFoodComponent
   ],
   imports: [
     BrowserModule,
