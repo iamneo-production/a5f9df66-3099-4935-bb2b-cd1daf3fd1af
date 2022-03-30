@@ -7,6 +7,7 @@ import { RegistrationsuccessComponent } from './registrationsuccess/registration
 import { BookingComponent } from './booking/booking.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { RegisterpageComponent } from './registerpage/registerpage.component';
+import { FoodComponent } from './food/food.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { RegisterpageComponent } from './registerpage/registerpage.component';
     RegistrationsuccessComponent,
     BookingComponent,
     HomepageComponent,
-    RegisterpageComponent
+    RegisterpageComponent,
+    FoodComponent
   ],
   imports: [
     BrowserModule,

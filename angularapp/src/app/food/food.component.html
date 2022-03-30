@@ -1,0 +1,118 @@
+<body>
+    
+
+    <nav class="navbar navbar-expand-lg navbar-light" >
+    
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#" style="color:aliceblue">Add Theme <span class="sr-only">(current)</span></a>
+            </li>
+            <a class="navbar-brand" href="#" style="color:aliceblue">Food Menu</a>
+            <li class="nav-item">
+              <a class="nav-link" href="#" style="color:aliceblue">Add Address</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" style="color:aliceblue">Log out</a>
+            </li>
+            
+          </ul>
+        </div>
+      </nav> 
+  
+     
+  
+    <button class="btn btn-primary me-md-2" type="button"
+     style="background: linear-gradient(to right, rgba(11, 11, 88, 0.925) , rgba(17, 13, 80, 0.493) );
+     font-family:Ubuntu; color: white;border-radius: 20px; margin: 12px;" id="bt1" (click)="open(content)">Add Item</button>
+    <div class="container" style="border-radius: 10px;">
+      <table class = "table">
+        <thead>
+          <tr>
+            <th>Item Image</th>
+            <th>Item Name</th>
+            <th>Item Category</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+         <tr *ngFor="let food of foods">
+         <!----<td><span><img [src]="food.img" alt="{{food.name}}"
+              style="height:60px;width:63px;"></span></td>-->
+           
+        <!--- <td><span>{{food.id}}</span></td>-->
+        <td>
+          <span><img src="{{food.image}}" style="width: 60px; height: 60px;"/></span>
+        </td>
+          <td><span>{{food.name}}</span></td>
+          <td><span>{{food.type}}</span></td>
+          <td><span>{{food.price}}</span></td>
+         
+           <td>
+      <!---- <button  class = "btn btn-info"  (click)="edit(food.id)" (click)="open(content)"> Update</button>-->
+      <button type="button" class="btn btn-primary" (click) = "updateFoods(food.id)">Edit</button>
+    <!----<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
+            <button (click) = "deleteFoods(food.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+            </td> 
+            
+        </tr>
+        </tbody>
+    </table>
+  </div>
+  
+  
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Add Item</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+        <div class="form-group">
+          <label for="image">Item image</label>
+          <div class="input-group">
+            <input id="image" name="image" class="form-control"  [(ngModel)]="food.image">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="name">Item name</label>
+          <div class="input-group">
+            <input id="name" name="name" class="form-control"  [(ngModel)]="food.name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="type">Category</label>
+          <div class="input-group">
+            <input id="type" name="type" class="form-control"  [(ngModel)]="food.type">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="price">Price</label>
+          <div class="input-group">
+            <input id="price" name="price" class="form-control"  [(ngModel)]="food.price">
+          </div>
+        </div>
+        <div>
+        <div class="border text-center">
+          <button data-dismiss="modal" class="btn btn-info" [disabled]="!food.image|| !food.name|| !food.type || !food.price" (click)="modal.close('Save click')">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+  
+  
+  <!-------------modal for update-->
+  
+  
+  <!-- Modal -->
+  
+  
+  </body>
+  

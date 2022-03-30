@@ -1,0 +1,88 @@
+body{
+    background-color: #7B93AA;
+    background-image: linear-gradient(rgba(48, 48, 134, 0.5), rgba(172, 172, 167, 0.5)),url('../../assets/images/bg_food.jpg');
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+      
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+   background-position: center; /* Center the image */
+   background-repeat: no-repeat; /* Do not repeat the image */
+   background-size: cover; /* Resize the background image to cover the entire container */
+  }
+  
+  .navbar{
+    background-color: #242053;
+  }
+  .nav-link{
+    margin-left:200px;
+   
+  }
+  .navbar-brand{
+    margin-left: 200px;
+   
+  }
+  
+  #bt-add-theme{
+    background: #242053;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  filter: blur(4px);
+  border-radius: 20px;
+  }
+  #bt1{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  #bt1:after {
+    content: '+';
+    position: absolute;
+    opacity: 0;  
+    top: 5px;
+    right: -20px;
+    transition: 0.5s;
+  }
+  #bt1:hover{
+    padding-right: 24px;
+    padding-left:8px;
+  }
+  #bt1:hover:after {
+    opacity: 1;
+    right: 10px;
+  }
+  .container{
+  background-color: rgba(35, 35, 35, 0.8);
+     text-align: center;
+     opacity:80%;
+  }
+  .container-fluid{
+    padding-right: 50px !important;
+    padding-left: 50px !important;
+    padding-top: 25px !important;
+    opacity: 80%;
+    
+  }
+  .col1{
+     height: 35px;
+     padding-block: 4px;
+  }
+  .table{
+  border-collapse:separate;
+  border-spacing:0 15px; 
+  }
+  
+  .table thead th {
+  color: dodgerblue;
+  }
+  th, td {
+  width:150px;
+  text-align:center;
+  border:1px solid black;
+  padding:5px;
+  border: none;
+  color:aliceblue;
+  }
