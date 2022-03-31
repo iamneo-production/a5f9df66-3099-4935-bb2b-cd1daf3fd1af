@@ -1,0 +1,77 @@
+package com.foodmenu.food.service;
+
+	import java.util.List;
+	import java.util.Optional;
+
+	import org.springframework.beans.factory.annotation.Autowired;
+	import org.springframework.stereotype.Service;
+
+	import com.foodmenu.food.model.Addon;
+	import com.foodmenu.food.repository.AddonRepository;
+
+
+
+
+	@Service
+	public class AddonService {
+		
+		@Autowired AddonRepository repository;
+		
+		public Addon saveFood(Addon food) throws Exception {
+			String currentfood = food.getName();
+			Addon userfood=repository.findByName(currentfood);
+			if(userfood!=null)
+			{
+				throw new Exception("Add_on alreay exist");
+			}
+			return repository.save(food);
+		}
+		
+		public List<Addon> getFoodInfos(){
+			return repository.findAll();
+		}
+		
+		public Optional<Addon> getFoodById(long id) {
+			return repository.findById(id);
+		}
+		
+		public boolean checkExistedFood(long id) {
+			if(repository.existsById((long) id)) {
+				return true;
+			}
+			return false;
+		}
+		
+		public Addon updateFood(Addon food) throws Exception {
+			
+			String currentfood = food.getName();
+			Addon userfood=repository.findByName(currentfood);
+			if(userfood!=null)
+			{
+				throw new Exception("Add_on alreay exist");
+			}
+			return repository.save(food);		
+		}
+		
+		public void deleteFoodById(long id) {
+			repository.deleteById(id);
+		}
+		/*
+		public Food updateStudent(Food food,long id) throws Exception  {
+			
+			long id1= id;
+			Food fd = repository.findById(id1).get();
+			String currentfood = food.getName();
+			Food userfood=repository.findByName(currentfood);
+			if(userfood!=null)
+			{
+				throw new Exception("Add_on alreay exist");
+			}
+			fd.setName(fd.getName());
+			fd.setPrice(fd.getPrice());
+			fd.setImage(fd.getImage());
+			return repository.save(fd);
+		}
+*/
+		
+	}
