@@ -27,3 +27,4 @@ export class AddOnService {
     return this.httpClient.put('http://localhost:8080/admin/editAddon/'+id,addOn);
   }
 }
+
