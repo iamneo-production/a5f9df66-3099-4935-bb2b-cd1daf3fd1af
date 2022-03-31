@@ -1,0 +1,97 @@
+<body style="background-color: #7B93AA;">
+    <nav class="navbar navbar-expand-lg" style="background: linear-gradient(to right, rgba(11, 11, 88, 0.925) , rgba(17, 13, 80, 0.493) );box-shadow: 0 2px 5px 0 rgba(30, 30, 31, 0.308);">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#" id="anchor" style="color: white;">Add Theme</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="#menu1">
+            <li class="nav-item">
+              <a class="nav-link active" id="anchor" aria-current="page" href="#" style="color: white;">Food Menu</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="anchor" style="color: white;">Add Add-ons</a>
+            </li>
+            
+          </ul>
+          <span class="navbar-text">
+              <a class="nav-link" href="#" id="anchor" style="color: white;">Logout</a>
+          </span>
+        </div>
+      </div>
+    </nav>
+    <form    (ngSubmit)="AddTheme()" >
+   <div class="container">
+       
+     <div class="row">
+       <div class="col-5">
+         
+             <div class="form-group col-lg-6 " id="input-box">
+                 
+                 <input type="text" class="form-control input-normal" style="border-radius: 10px;background-color: #d3d8e2; font-family: 'Ubuntu'; color: black;" placeholder="Enter theme name" id="themeName" name="themeName"[(ngModel)]="addmenu.themeName"/>
+             </div>
+             <!--<div *ngIf="requiredForm.controls['addmenu.themeName'].invalid && requiredForm.controls['addmenu.themeName'].touched" class="alert alert-danger">
+              <div *ngIf="requiredForm.controls['ThemName'].errors.required">
+              Theme Name is required.
+            </div>
+          </div>-->
+             <div class="form-group col-lg-6 " id="input-box">
+                 
+                 <input type="text"  class="form-control input-normal" style="border-radius: 10px;background-color: #d3d8e2; font-family: 'Ubuntu'; color: black;" placeholder="Enter the image url" id="imageUrl" name="imageUrl" [(ngModel)]="addmenu.imageUrl"/>
+             </div>
+             <div class="form-group col-lg-6 " id="input-box">
+                 
+                 <input type="text" class="form-control input-normal" style="border-radius: 10px;background-color: #d3d8e2; font-family: 'Ubuntu'; color: black;" placeholder="Enter  photograher Details" id="photographerDetails" name="photographerDetails"[(ngModel)]="addmenu.photographerDetails" required/>
+             </div>
+             <div class="form-group " id="input-box">
+                 
+                 <img src="../assets/images/admin_page(1).jpg" class="img-thumbnail" alt="image"/>
+             </div>
+     
+         
+       </div>
+       <div class="col-6">
+         
+         <div class="form-group col-lg-6 " id="input-box">
+                 
+             <input type="text" class="form-control input-normal" style="border-radius: 10px;background-color: #d3d8e2; font-family: 'Ubuntu'; color: black;" placeholder="Enter videograher Details"  id="videographerDetails" name="videographerDetails" [(ngModel)]="addmenu.videographerDetails"/>
+  
+         </div>
+         <div class="form-group col-lg-6 " id="input-box">
+             
+             <input type="text" class="form-control input-normal" style="border-radius: 10px;background-color: #d3d8e2; font-family: 'Ubuntu'; color: black;" placeholder="Enter theme return gift" id="returnGift" name="returnGift" [(ngModel)]="addmenu.returnGift"/>
+         </div>
+         <div class="form-group col-lg-6 " id="input-box">
+             
+             <input type="text" class="form-control input-normal" style="border-radius: 10px;background-color: #d3d8e2; font-family: 'Ubuntu'; color: black;" placeholder="Enter theme cost" id="themeCost" name="themeCost" [(ngModel)]="addmenu.themeCost"/>
+         </div>
+         <div class="form-group col-lg-6 " id="input-box">
+             
+             <input type="text" class="form-control input-normal" style="border-radius: 10px;background-color: #d3d8e2; font-family: 'Ubuntu'; color: black; height: 147px;" placeholder="Enter theme description" id="themeDiscription" name="themeDiscription" [(ngModel)]="addmenu. themeDiscription"/>
+         </div>
+  
+     
+         
+       </div>
+       <div class="col">
+         
+         <div class="form-group " style="margin-top: 30%;">
+                 
+             <img src="../assets/images/admin_page(2).jpg" class="img-thumbnail"  alt="image"/>
+  
+         </div>
+     </div>
+     
+     </div>
+  
+   </div>
+  
+   <div class="d-grid gap-2 d-md-flex justify-content-md-end" >
+     <button  [disabled]="!addmenu.themeName || !addmenu.imageUrl || !addmenu.photographerDetails || !addmenu.videographerDetails || !addmenu.returnGift || !addmenu.themeCost || !addmenu. themeDiscription" class="btn btn-primary me-md-2" type="submit" style="background: linear-gradient(to right, rgba(11, 11, 88, 0.925) , rgba(17, 13, 80, 0.493) );font-family:Ubuntu; color: white;border-radius: 20px;" id="bt1">Add Theme</button>
+  
+   </div>
+  </form>
+    
+  </body>

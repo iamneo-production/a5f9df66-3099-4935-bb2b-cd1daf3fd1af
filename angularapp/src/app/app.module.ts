@@ -13,6 +13,7 @@ import { DisplayUserComponent } from './display-user/display-user.component';
 import { ViewbookingComponent } from './viewbooking/viewbooking.component';
 import { AdminAddonComponent } from './admin-addon/admin-addon.component';
 import { PresentationPageComponent } from './presentation-page/presentation-page.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PresentationPageComponent } from './presentation-page/presentation-page
     DisplayUserComponent,
     ViewbookingComponent,
     AdminAddonComponent,
-    PresentationPageComponent
+    PresentationPageComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,
