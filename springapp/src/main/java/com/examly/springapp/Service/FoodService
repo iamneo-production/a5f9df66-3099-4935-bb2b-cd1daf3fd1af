@@ -1,0 +1,53 @@
+package com.foodmenu.food.service;
+
+	import java.util.List;
+	import java.util.Optional;
+
+	import org.springframework.beans.factory.annotation.Autowired;
+	import org.springframework.stereotype.Service;
+
+	import com.foodmenu.food.model.Food;
+	import com.foodmenu.food.repository.FoodRepository;
+
+
+
+	@Service
+	public class FoodService {
+		
+		@Autowired FoodRepository repository;
+		
+		public Food saveFood(Food food) throws Exception {
+			String currentfood = food.getName();
+			Food userfood=repository.findByName(currentfood);
+			if(userfood!=null)
+			{
+				throw new Exception("food item alreay exist");
+			}
+			return repository.save(food);
+		}
+		
+		public List<Food> getFoodInfos(){
+			return repository.findAll();
+		}
+		
+		public Optional<Food> getFoodById(long id) {
+			return repository.findById(id);
+		}
+		
+		public boolean checkExistedFood(long id) {
+			if(repository.existsById((long) id)) {
+				return true;
+			}
+			return false;
+		}
+		
+		public Food updateFood(Food food) {
+			return repository.save(food);		
+		}
+		
+		public void deleteFoodById(long id) {
+			repository.deleteById(id);
+		}
+	}
+	
+
