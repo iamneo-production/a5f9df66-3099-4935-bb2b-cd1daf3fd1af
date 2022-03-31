@@ -1,0 +1,95 @@
+package com.foodmenu.food.controller;
+
+	import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
+	import org.springframework.beans.factory.annotation.Autowired;
+	import org.springframework.http.HttpStatus;
+	import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+	import org.springframework.web.bind.annotation.GetMapping;
+	import org.springframework.web.bind.annotation.PathVariable;
+	import org.springframework.web.bind.annotation.PostMapping;
+	import org.springframework.web.bind.annotation.PutMapping;
+	import org.springframework.web.bind.annotation.RequestBody;
+	import org.springframework.web.bind.annotation.RequestMapping;
+	import org.springframework.web.bind.annotation.RestController;
+
+import com.foodmenu.food.exception.ResourceNotFoundException;
+import com.foodmenu.food.model.Food;
+import com.foodmenu.food.model.Message;
+import com.foodmenu.food.repository.FoodRepository;
+import com.foodmenu.food.service.FoodService;
+
+	
+	
+
+	@RestController
+	@RequestMapping("/admin")
+	@CrossOrigin(allowedHeaders="*" ,origins="*")
+	public class FoodController {
+		
+		@Autowired
+		FoodService foodServices;
+		@Autowired
+		private FoodRepository foodRepository;
+		@PostMapping("/addMenu")
+		public ResponseEntity<Message> addNewFood(@RequestBody Food food) {
+			try {
+				Food returnedFood = foodServices.saveFood(food);
+				
+				return new ResponseEntity<Message>(new Message("Upload Successfully!", 
+												Arrays.asList(returnedFood), ""), HttpStatus.OK);
+			}catch(Exception e) {
+				return new ResponseEntity<Message>(new Message("Fail to post a new Customer!", 
+												null, e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);			
+			}
+		}
+		
+
+		@GetMapping("/getMenu")
+		public List<Food> getAllFood(){
+			return foodRepository.findAll();
+		}
+		@GetMapping("/getMenu/{id}")
+		public ResponseEntity<Food> getEmployeeById(@PathVariable Long id) {
+			Food food = foodRepository.findById(id)
+					.orElseThrow(() -> new ResourceNotFoundException("Food not exist with id :" + id));
+			return ResponseEntity.ok(food);
+		}
+		
+//		
+		@CrossOrigin(allowedHeaders="*" ,origins="*")
+		@PutMapping("/editMenu/{id}")
+		public ResponseEntity<Food> updateFood(@PathVariable Long id, @RequestBody Food foodDetails){
+			Food food = foodRepository.findById(id)
+					.orElseThrow(() -> new ResourceNotFoundException("Food not exist with id :" + id));
+			
+			food.setName(foodDetails.getName());
+			food.setType(foodDetails.getType());
+			food.setPrice(foodDetails.getPrice());
+			
+			Food updatedFood = foodRepository.save(food);
+			return ResponseEntity.ok(updatedFood);
+		}
+		
+		
+		@DeleteMapping("/deleteMenu/{id}")
+		public ResponseEntity<Map<String, Boolean>> deleteEmployee(@PathVariable Long id){
+			Food food = foodRepository.findById(id)
+					.orElseThrow(() -> new ResourceNotFoundException("Food not exist with id :" + id));
+			
+			foodRepository.delete(food);
+			Map<String, Boolean> response = new HashMap<>();
+			response.put("deleted", Boolean.TRUE);
+			return ResponseEntity.ok(response);
+		}
+			
+	}
+
+
+
