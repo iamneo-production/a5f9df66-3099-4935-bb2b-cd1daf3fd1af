@@ -1,0 +1,35 @@
+package com.virtusa.CarRental.Controller;
+
+
+
+
+import com.virtusa.CarRental.Entity.ThemeModel;
+import com.virtusa.CarRental.Services.ThemeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@CrossOrigin(origins="http://localhost:4200")
+public class ThemeController {
+
+    @Autowired  ThemeService themeservice;
+    @PostMapping("/admin/addtheme")
+    public ResponseEntity<ThemeModel> register(@RequestBody ThemeModel theme)throws Exception
+    {
+        ThemeModel userObj = null;
+        userObj=themeservice.saveUser(theme);
+        return new ResponseEntity<ThemeModel>(userObj, HttpStatus.OK);
+    }
+
+    @GetMapping("/user/getAllThemes")
+    public ResponseEntity<List<ThemeModel>> getAllThemes() throws Exception
+    {
+        List<ThemeModel> theme=themeservice.getAllTheme();
+        return new ResponseEntity<List<ThemeModel>>(theme, HttpStatus.OK);
+    }
+    
+}
