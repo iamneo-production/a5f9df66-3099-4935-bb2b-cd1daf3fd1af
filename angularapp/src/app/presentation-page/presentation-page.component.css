@@ -1,0 +1,177 @@
+body{
+  background-image: url('https://st.depositphotos.com/1011643/1248/i/600/depositphotos_12485918-stock-photo-caring-mother-and-babys-hands.jpg');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.initial{
+  color: transparent;
+  animation: nameStart .6s ease-in-out forwards;
+  animation-delay: 2s;
+}
+#initialE{
+  animation-delay: 5s;
+}
+#initialM,#initialS{
+  animation-delay: 8s;
+}
+#project_name{
+  margin-top: 4%;
+  position: relative;
+}
+#project_name::after{
+  content: '';
+  position: absolute;
+  left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	opacity: .7;
+	z-index: -1;
+}
+#project_name .hero {
+	/* max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 50px; */
+	justify-content: flex-start;
+}
+#project_name h1{
+  color: transparent;
+  font-weight: bolder;
+  letter-spacing: 0.5mm;
+  font-size: 3.7em;
+  width: fit-content;
+  display: block;
+  position: relative;
+  /* animation: text_reveal .5s ease forwards; */
+	/* animation-delay: 2s; */
+}
+#project_name h1:nth-child(1) {
+  animation: text_reveal1 .6s ease-in-out forwards;
+	animation-delay: 3s;
+}
+#project_name h1:nth-child(2),#line2 {
+  animation: text_reveal2 .6s ease-in-out forwards;
+	animation-delay: 4s;
+}
+#project_name h1:nth-child(3),#line3 {
+	animation: text_reveal3 .6s ease-in-out forwards;
+	animation-delay: 5s;
+}
+#project_name h1 .reveal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 0;
+	background-color: #7209b7;
+	/* animation: text_reveal_box 1s ease; */
+	/* animation-delay: 1.5s; */
+}
+#project_name h1:nth-child(1) .reveal {
+  animation: text_reveal_box1 2s ease-in-out;
+	animation-delay: 1.5s;
+}
+#project_name h1:nth-child(2) .reveal {
+  animation: text_reveal_box2 2s ease-in-out;
+	animation-delay: 1.9s;
+}
+#project_name h1:nth-child(3) .reveal,#line3 .reveal {
+  animation: text_reveal_box3 2s ease-in-out;
+	animation-delay: 5s;
+}
+@keyframes text_reveal_box1 {
+	50% {
+		width: 100%;
+		left: 0;
+	}
+	100% {
+		width: 0;
+		left: 100%;
+	}
+}
+@keyframes text_reveal_box2 {
+	50% {
+		width: 100%;
+		left: 0;
+	}
+	100% {
+		width: 0;
+		left: 100%;
+	}
+}
+@keyframes text_reveal_box3 {
+	50% {
+		width: 100%;
+		left: 0;
+	}
+	100% {
+		width: 0;
+		left: 100%;
+	}
+}
+@keyframes text_reveal1 {
+	100% {
+		color: #b5179e;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+	}
+}
+@keyframes text_reveal2 {
+	100% {
+		color: #b5179e;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+	}
+}
+@keyframes text_reveal3 {
+	100% {
+		color: #b5179e;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+	}
+}
+@keyframes nameStart{
+  100%{
+    color: #7209b7;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  }
+}
+.lets_go{
+  background-color: rgba(230, 57, 70, 0.65);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  /* filter: blur(4px); */
+  color: #fff;
+  width: 12.5em;
+  height: 4.94em;
+  border: none;
+  border-radius: 90px;
+  position: absolute;
+  bottom: 8%;
+  left: 43%;
+  font-size: larger;
+}
+.lets_go:hover{
+  opacity: 0.75;
+}
+.text{
+  width: 0ch;
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+  bottom: 0.8%;
+  right: 1%;
+  border-left: 5px solid dodgerblue;
+  text-shadow: 2px 2px 4px;
+  animation: textAnimate 6s ease-in-out 3s infinite;
+}
+@keyframes textAnimate {
+  0%{
+    width: 0ch;
+  }
+  50%{
+    width: 24ch;
+  }
+}
+.lets_go, .text{
+  font-weight: bold;
+  font-style: italic;
+}
