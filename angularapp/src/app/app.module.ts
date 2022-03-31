@@ -11,6 +11,7 @@ import { FoodComponent } from './food/food.component';
 import { UpdateFoodComponent } from './update-food/update-food.component';
 import { DisplayUserComponent } from './display-user/display-user.component';
 import { ViewbookingComponent } from './viewbooking/viewbooking.component';
+import { AdminAddonComponent } from './admin-addon/admin-addon.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ViewbookingComponent } from './viewbooking/viewbooking.component';
     FoodComponent,
     UpdateFoodComponent,
     DisplayUserComponent,
-    ViewbookingComponent
+    ViewbookingComponent,
+    AdminAddonComponent
   ],
   imports: [
     BrowserModule,

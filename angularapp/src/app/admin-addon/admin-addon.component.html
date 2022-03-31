@@ -1,0 +1,149 @@
+<body>
+    <nav class="navbar navbar-expand-lg" style="background: linear-gradient(to right, rgba(11, 11, 88, 0.925) , rgba(17, 13, 80, 0.493) );box-shadow: 0 2px 5px 0 rgba(30, 30, 31, 0.308);">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="#menu1">
+              <li class="nav-item">
+                <a class="nav-link active" id="anchor" aria-current="page" href="#" style="color: white;">Add Theme</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link active" id="anchor" aria-current="page" href="#" style="color: white;">Food Menu</a>
+              </li>
+              <li class="nav-item">
+                <b><a class="nav-link active" href="#" aria-current="page" id="anchor" style="color: white; font-size: larger;">Add-ons</a>
+                </b>
+                </li>
+
+            </ul>
+            
+            <span class="navbar-text">
+                <a class="nav-link" href="#" id="anchor" style="color: white;">Logout</a>
+            </span>
+          </div>
+        </div>
+      </nav>
+      
+    <div class="row row-cols-2 row-cols-md-2 g-2" id="card">
+      <div class="col">
+      <div *ngFor="let addon of ad1">
+        
+        
+          <div class="card" id="card-addon" style="margin-left:30px ;margin-bottom: 20px;margin-top: 10px;margin-right: 35%;">
+            <!--<img src="https://www.carmarthenshire.gov.wales/media/1220801/baby-name-banner.jpg" class="card-img-top" alt="..." />-->
+            <img src={{addon.imageUrl}} class="card-img-top" alt="..." />
+            <div class="card-body">
+              <p class="card-text"><pre>{{addon.name}}    Price:{{addon.price}}</pre>
+                
+                <a href="#"><button type="button" (click) = "edit(addon)" class="fas fa-edit" style="margin-left: 70%;" data-toggle="modal" data-target="#exampleModal">
+                  
+                </button></a>
+                <a href="#"><i class="fa fa-trash" style="margin-left: 10px;"  (click) = "deleteEmployee(addon.id)"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+    <!--<div class="col">
+      <div class="card" id="card-addon" style="margin-left:30px ; margin-top: 15px;">
+        <img src="../assets/images/magic_show_img.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          
+          <p class="card-text"><pre>Magic show   Price  2500</pre>
+            <a href="#"><i class='fas fa-edit' style="margin-left: 80%;"></i></a>
+            <a href="#"><i class="fa fa-trash" style="margin-left: 10px;"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="margin-left:30px ; margin-top: 15px;">
+        <img src="../assets/images/mehandi_art_img.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          
+          <p class="card-text"><pre>Mehandi Art   Price 2500</pre>
+            <a href="#"><i class='fas fa-edit' style="margin-left: 80%;"></i></a>
+            <a href="#"><i class="fa fa-trash" style="margin-left: 10px;"></i></a>
+        </div>
+      </div>
+    </div>-->
+    <form   (ngSubmit)="AddOn()">
+    <div class="col" id="form-addon" style="margin-right: 10%;">
+      <h1>Add Ons</h1>
+      <div class="form-group col-lg-15" id="input-box" [class.has-error]="addOnPrice.invalid && addOnPrice.touched">
+                
+        <input type="name" class="form-control"ngModel required id="addOnprice" #addOnName="ngModel" [(ngModel)]="ad.name" name="name"style="border-radius: 10px;background-color: #d3d8e2; font-family: 'Ubuntu'; color: black;" placeholder="Enter the Add ons name"/>
+        <small><span class="help-block" style="color: red;" *ngIf="addOnName.invalid && addOnName.touched">Add-on Name is required*</span>
+        </small>
+        <!---
+        <div *ngIf="submitted==true && form.get('addOnName').invalid" class="form-group" class="alert alert-danger">
+          <span  style="color: red;" *ngIf="form.get('email').hasError('required')">
+            Email is Required!
+          </span>
+          <span style="color: red;"  *ngIf="form.get('email').hasError('email') && !form.get('email').hasError('required')">
+            Invalid Email!
+          </span>
+      </div>-->
+        </div>
+    
+    <div class="form-group col-lg-15 " id="input-box" [class.has-error]="addOnPrice.invalid && addOnPrice.touched">
+        
+        <input type="text" ngModel required id="addOnPrice" #addOnPrice="ngModel" class="form-control input-normal" [(ngModel)]="ad.price" name="price"style="border-radius: 10px;background-color: #d3d8e2; font-family: 'Ubuntu'; color: black;" placeholder="Enter the price"/>
+        <small><span class="help-block" style="color: red;" *ngIf="addOnPrice.invalid && addOnPrice.touched">Price is required*</span>
+        </small>
+      </div>
+    <div class="form-group col-lg-15 " id="input-box" [class.has-error]="addOnImageurl.invalid && addOnImageurl.touched">
+        
+        <input type="text" ngModel required id="addOnImage" #addOnImageurl="ngModel" class="form-control input-normal" [(ngModel)]="ad.imageUrl" name="imageUrl" style="border-radius: 10px;background-color: #d3d8e2; font-family: 'Ubuntu'; color: black;" placeholder="Enter Image URL"/>
+        <small><span class="help-block" style="color: red;" *ngIf="addOnImageurl.invalid && addOnImageurl.touched">Image URL is required*</span>
+        </small>
+      </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md">
+      <button class="btn btn-primary" type="submit"  [disabled]="!ad.name || !ad.imageUrl || !ad.price " value="Add-On" style="background: linear-gradient(to right, rgba(11, 11, 88, 0.925) , rgba(17, 13, 80, 0.493) );font-family:Ubuntu; color: white;border-radius: 20px;" id="bt1">Add Add-On</button>
+      
+    </div>
+  </div></form>
+    </div>
+
+    <!-- Button trigger modal -->
+
+<!-- Modal -->
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit AddOn</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-body">
+          <form #updateForm="ngForm" (ngSubmit)="updateAddon()">
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">AddOn Name:</label>
+              <input type="text" class="form-control" #name [(ngModel)]="addOntoUpdate.name" name="name" placeholder="Enter the Add ons name">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">AddOn Price:</label>
+              <input type="text" class="form-control" #price  [(ngModel)]="addOntoUpdate.price" name="price" placeholder="Enter the Add ons Price">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">AddOn Image URL:</label>
+              <input type="text" class="form-control" #imageUrl [(ngModel)]="addOntoUpdate.imageUrl" name="imageUrl" placeholder="Enter the Add ons Image URL">
+            </div>
+            <div class="form-group">
+            <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">UPDATE</button>
+            </div>
+          </form>
+
+          
+      </div>
+      
+    </div>
+  </div></div>
+</div>
+  </body>
+
