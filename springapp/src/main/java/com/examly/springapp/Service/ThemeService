@@ -1,0 +1,22 @@
+package com.virtusa.CarRental.Services;
+
+import java.util.List;
+import com.virtusa.CarRental.Entity.ThemeModel;
+import com.virtusa.CarRental.repo.ThemeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class ThemeService {
+    @Autowired ThemeRepository themerepository;
+
+    public ThemeModel saveUser(ThemeModel theme) {
+        return themerepository.save(theme);
+    }
+
+    public List<ThemeModel> getAllTheme() {
+        return  (List<ThemeModel>)themerepository.findAll();
+    }
+}
