@@ -1,0 +1,17 @@
+package com.virtusa.CarRental.repo;
+
+import com.virtusa.CarRental.Entity.EventModel;
+import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.CrudRepository;
+
+import java.util.List;
+
+@Repository
+public interface EventRepository  extends CrudRepository<EventModel,Long>{
+
+
+
+      public List<EventModel> findByApplicantEmailId(String email);
+
+
+}
